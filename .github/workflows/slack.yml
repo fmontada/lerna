@@ -1,0 +1,14 @@
+name: Slack Command
+
+on:
+  repository_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - run: echo slack command
+      env:
+        CI: true
