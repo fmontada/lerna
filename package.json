@@ -2,6 +2,9 @@
   "name": "root",
   "private": true,
   "devDependencies": {},
+  "scripts": {
+    "version": "lerna version minor --yes"
+  },
   "dependencies": {
     "lerna": "^3.20.2",
     "moment": "^2.24.0"
