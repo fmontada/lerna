@@ -15,6 +15,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Config Github Credentials
+      run: |
+        git config --global url."https://${{secrets.GITHUB_CI_TOKEN}}:@github.com/".insteadOf "https://github.com/"
+        git config --global user.email "fmontadamt@gmail.com"
+        git config --global user.name "CI"
+    
+    - name: Version
+      run: echo test-version
+    
     - run: echo testing-trigger
       env:
         CI: true
