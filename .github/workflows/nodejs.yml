@@ -28,7 +28,7 @@ jobs:
         git config --global user.name "CI"
     
     - name: Version
-      run: lerna version minor --yes
+      run: npm run lerna version minor --yes
       
     - name: Test
       run: echo test-version
