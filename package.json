@@ -1,7 +1,9 @@
 {
   "name": "root",
   "private": true,
-  "devDependencies": {
-    "lerna": "^3.20.2"
+  "devDependencies": {},
+  "dependencies": {
+    "lerna": "^3.20.2",
+    "moment": "^2.24.0"
   }
 }
