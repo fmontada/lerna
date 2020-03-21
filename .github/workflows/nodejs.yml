@@ -1,0 +1,38 @@
+# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Git Checkout
+      uses: actions/checkout@v2
+      
+    - name: Install Packages
+      run: npm i
+            
+    - name: Config Github Credentials
+      run: |
+        git config --global url."https://${{secrets.GITHUB_CI_TOKEN}}:@github.com/".insteadOf "https://github.com/"
+        git config --global user.email "fmontadamt@gmail.com"
+        git config --global user.name "CI"
+    
+    - name: Version
+      run: lerna version minor --yes
+      
+    - name: Test
+      run: echo test-version
+    
+    - run: echo testing-trigger
+      env:
+        CI: true
