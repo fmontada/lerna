@@ -2,6 +2,10 @@
   "name": "root",
   "private": true,
   "devDependencies": {},
+   "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "version": "lerna version --conventional-commits --no-changelog --yes"
   },
