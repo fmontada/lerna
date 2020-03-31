@@ -38,7 +38,9 @@ jobs:
           git config --global user.name "CI"
 
       - name: Version
-        run: npm run version
+        run: |
+          git stash
+          npm run version
 
 #     - name: Test
 #       run: echo test-version
