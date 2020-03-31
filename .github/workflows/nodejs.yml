@@ -18,20 +18,26 @@ jobs:
       - name: testing
         run: |
           echo ${{github.event.head_commit.message}}
+          echo ${{ github.event_name }}
+          echo ${{ github.ref }}
+          echo ${{ github.event_name	 }}
+          echo ${{ github.sha }}
+          echo ${{ github.head_ref }}
+          echo ${{ github.base_ref }}
 
-#     - name: Git Checkout /////
-#       uses: actions/checkout@v2
+      - name: Git Checkout 
+        uses: actions/checkout@v2
 
-#     - name: Install Packages
-#       run: npm i
+      - name: Install Packages
+        run: npm i
 
-#     - name: Config Github Credentials
-#       run: |
-#         git config --global url."https://${{secrets.GITHUB_CI_TOKEN}}:@github.com/".insteadOf "https://github.com/"
-#         git config --global user.email "fmontadamt@gmail.com"
-#         git config --global user.name "CI"
+      - name: Config Github Credentials
+        run: |
+          git config --global url."https://${{secrets.GITHUB_CI_TOKEN}}:@github.com/".insteadOf "https://github.com/"
+          git config --global user.email "fmontadamt@gmail.com"
+          git config --global user.name "CI"
 
-#     - name: Version
+      - name: Version
 #       run: npm run version
 
 #     - name: Test
