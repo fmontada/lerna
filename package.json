@@ -3,7 +3,7 @@
   "private": true,
   "devDependencies": {},
   "scripts": {
-    "version": "lerna version minor --yes"
+    "version": "lerna version --conventional-commits --no-changelog --yes"
   },
   "dependencies": {
     "lerna": "^3.20.2",
