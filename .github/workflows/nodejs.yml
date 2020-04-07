@@ -21,10 +21,14 @@ jobs:
       - name: Checkout Master
         run: git checkout master
         
+      - name: Logging first time
+        run: |
+            ls
+            pwd  
       - name: Change Directory
         run: cd packages
         
-      - name: logging
+      - name: Logging second time
         run: |
             ls
             pwd
