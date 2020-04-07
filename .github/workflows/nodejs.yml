@@ -18,7 +18,9 @@ jobs:
         if: github.event_name == 'push'
         env:
           working_directory: packages/modulo-1
-        run: ls -la
+        run: |
+          ls -la
+          pwd
         
       #- name: Git Checkout 
       #  uses: actions/checkout@v1
