@@ -6,8 +6,7 @@ name: Node.js CI
 on:
   push:
     branches: [master]
-env:
-  working_directory: packages/modulo-1    
+    
 
 jobs:
   build:
@@ -17,15 +16,19 @@ jobs:
       (github.event_name == 'push' && !startsWith(github.event.head_commit.message, 'tag release'))
       
     steps:
+        
       - name: Git Checkout 
-        if: github.event_name == 'push'        
+        uses: actions/checkout@v1
+      
+      - name: Change working directory
+        if: github.event_name == 'push' 
+        env:
+          working_directory: packages/modulo-1       
         run: |
           ls -la
           pwd
-        
-      #- name: Git Checkout 
-      #  uses: actions/checkout@v1
-        
+      
+      
       #- name: Checkout Master
       #  run: git checkout master
         
