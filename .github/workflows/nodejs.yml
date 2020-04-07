@@ -20,7 +20,15 @@ jobs:
         
       - name: Checkout Master
         run: git checkout master
-          
+        
+      - name: Change Directory
+        run: cd packages
+        
+      - name: logging
+        run: |
+            ls
+            pwd
+        
       - name: testing
         run: |
             echo "${{ github.event.head_commit.message }}"
