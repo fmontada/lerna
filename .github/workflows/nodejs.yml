@@ -18,7 +18,7 @@ jobs:
         if: github.event_name == 'push'
         env:
           working_directory: packages/modulo-1
-        run: echo hello
+        run: ls -la
         
       #- name: Git Checkout 
       #  uses: actions/checkout@v1
@@ -28,7 +28,7 @@ jobs:
         
       - name: Logging second time
         run: |
-            ls
+            ls -la
             pwd
         
       - name: testing
