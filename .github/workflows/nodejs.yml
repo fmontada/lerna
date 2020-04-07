@@ -6,6 +6,9 @@ name: Node.js CI
 on:
   push:
     branches: [master]
+env:
+  working_directory: packages/modulo-1    
+
 jobs:
   build:
     runs-on: ubuntu-latest    
@@ -15,9 +18,7 @@ jobs:
       
     steps:
       - name: Git Checkout 
-        if: github.event_name == 'push'
-        env:
-          working_directory: packages/modulo-1
+        if: github.event_name == 'push'        
         run: |
           ls -la
           pwd
