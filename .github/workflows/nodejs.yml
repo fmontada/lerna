@@ -6,31 +6,25 @@ name: Node.js CI
 on:
   push:
     branches: [master]
-env:
-  working_directory: ./packages/module1
-
 jobs:
   build:
-    runs-on: ubuntu-latest
-    env:
-      working_directory: ./packages/modulo-1
+    runs-on: ubuntu-latest    
     if: |
       (github.event_name == 'issue_comment' && startsWith(github.event.comment.body, '/deploy-')) ||
       (github.event_name == 'push' && !startsWith(github.event.head_commit.message, 'tag release'))
       
     steps:
       - name: Git Checkout 
-        uses: actions/checkout@v1
+        if: github.event_name == 'push'
+        env:
+          working_directory: packages/modulo-1
+        run: echo hello
         
-      - name: Checkout Master
-        run: git checkout master
+      #- name: Git Checkout 
+      #  uses: actions/checkout@v1
         
-      - name: Logging first time
-        run: |
-            ls
-            pwd  
-      - name: Change Directory
-        run: cd packages
+      #- name: Checkout Master
+      #  run: git checkout master
         
       - name: Logging second time
         run: |
